@@ -1,0 +1,296 @@
+@charset "UTF-8";
+.a {
+  color: red;
+  background: white;
+}
+
+*,
+*::before,
+*::after {
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+.container {
+  width: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+}
+
+/* Sass 變數，不會被編譯出去 */
+h1 {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgb(0, 0, 50)), color-stop(50%, rgb(0, 50, 200)), to(rgb(0, 0, 255)));
+  background: linear-gradient(0deg, rgb(0, 0, 50) 0%, rgb(0, 50, 200) 50%, rgb(0, 0, 255) 100%);
+  color: #fff;
+  border: 5px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
+}
+
+/* 04. 流程控制 */
+.mybox {
+  width: 150px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* @if ... @else if ... @else */
+  background-color: green;
+  /* 字串分為引號、沒引號，判斷會通過 */
+  -webkit-box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.5);
+  /* 使用 and 兩運算式條件成立 */
+  color: yellow !important;
+  /* 使用 or 兩運算式以上其中之一成立，不能使用 || */
+  font-weight: bolder;
+  font-size: 50px;
+  /* 使用 not 反轉運算式的結果 */
+  border: 10px dashed yellow;
+  /* 內建提供函式，類似三元運算子，一種函式，因此 if 沒有 @ */
+  outline: 10px solid red;
+}
+
+/* @for ... through */
+.through-1 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #aaa;
+}
+
+.through-2 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: #aaa;
+}
+
+.through-3 {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  background-color: #aaa;
+}
+
+/* @for ... to */
+.to-1 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #aaa;
+}
+
+.to-2 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: #aaa;
+}
+
+/*  05. 巢狀(嵌套,nested) */
+#section05 p {
+  border-bottom: 1px solid #000;
+}
+#section05 .menu {
+  margin-top: 2rem;
+  padding: 0;
+  font-size: 0;
+}
+#section05 .menu li {
+  display: inline-block;
+  font-size: 1rem;
+  width: 100px;
+  text-align: center;
+}
+#section05 .menu li a {
+  display: block;
+  background: black;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+#section05 .menu li a:hover {
+  color: yellow;
+  background-color: darkorchid;
+}
+#section05 .menu li + li {
+  border-left: 1px solid yellow;
+}
+#section05 .menu li + li {
+  border-left: 1px solid #fff;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* BEM 巢狀寫法，配合 & */
+.sidebar {
+  padding-left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sidebar__item {
+  color: yellow;
+  padding: 1rem;
+  border: 1px solid #333;
+  text-decoration: none;
+  background: black;
+}
+.sidebar__item--active {
+  background: deeppink;
+}
+.sidebar__item:hover {
+  background-color: deepskyblue;
+}
+.sidebar__item a {
+  color: white;
+  display: block;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+/* 練習:三欄 */
+#exercise .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #333;
+}
+#exercise .col {
+  width: 31.333333%;
+  margin: 1%;
+  background: #fff;
+  border: 1px solid #333;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#exercise .col:hover {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+#exercise a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#exercise a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+/* 06. 繼承 */
+.box3, .box2, .box1 {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+#extend {
+  margin-top: 1rem;
+  overflow: auto;
+}
+
+.box1 {
+  background: red;
+}
+
+.box2 {
+  background: green;
+}
+
+.box3 {
+  background: blue;
+}
+
+/* 07.計算 */
+.box4 {
+  background: #000;
+  /* 加法 */
+  width: 100px;
+  width: 100px;
+  height: 100px;
+  /* 減法 */
+  width: 50px;
+  width: 50px;
+  height: 50px;
+  /* 乘法 */
+  width: 100px;
+  /* 除法 */
+  width: 100px/2;
+  /* 變數不需要括號 */
+  height: 50px;
+  line-height: 1;
+  /* 餘數 */
+  margin-top: 20px;
+}
+
+/* 08. Functions(函式) */
+.funcbox {
+  width: 300px;
+  height: 300px;
+  color: white;
+  background: deeppink;
+  font-size: 40px;
+  width: 200px;
+  height: 100px;
+}
+
+.rem {
+  font-size: 1rem;
+  padding: 3rem;
+}
+
+#section08 .container p {
+  font-size: 18px;
+  line-height: 27px;
+  background: #e6e6e6;
+}
